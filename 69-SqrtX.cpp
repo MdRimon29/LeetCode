@@ -24,16 +24,17 @@ public:
             else
             {
                 left=mid+1;
-                sol=mid;
+                sol=mid;    //it say lowerbound so sol= mid in here,if its say upperbound then guess where
             }
         }
         return sol;
     }
 };
 
+
 int main()
 {
-    int x=1;
+    int x=4;
 
     int result=Solution().mySqrt(x);
 
