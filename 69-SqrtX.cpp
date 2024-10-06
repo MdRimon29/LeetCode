@@ -13,7 +13,7 @@ public:
         {
             int mid=left+(right-left)/2;
             
-            if(x/mid==mid)
+            if(x/mid==mid)  //we do division approach here.not apply multiplication,cz then the result of multiplication maybe go outside the range of int datatype
             {
                 return mid;
             }
