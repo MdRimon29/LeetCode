@@ -2,21 +2,20 @@
 using namespace std;
 
 class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) 
-    {
-        int left=1,right =1;
-        
-        for(right; right<nums.size(); right++)
+    public:
+        int removeDuplicates(vector<int>& nums) 
         {
-            if(nums[right]!= nums[right-1])
+            int i=0;
+            for(int j=1; j<nums.size(); j++)
             {
-                nums[left]=nums[right];
-                left+=1;
+                if(nums[j]!=nums[i])
+                {
+                    nums[i+1]=nums[j];
+                    i++;
+                }
             }
+            return i+1;
         }
-        return left;
-    }
 };
 int main()
 {
