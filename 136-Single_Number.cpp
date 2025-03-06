@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// tc=O(n)
+// sc=O(1)
 class Solution {
     public:
         int singleNumber(vector<int>& nums) {
