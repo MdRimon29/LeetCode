@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//using DNF algorithm
 class Solution {
     public:
         void sortColors(vector<int>& nums) {
