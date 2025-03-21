@@ -1,39 +1,44 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int longestConsecutiveOptimal(vector<int>&vec)
-{
-    int n=vec.size();
-    if(n==0) return 0;
+class Solution {
+    public:
+    int longestConsecutive(vector<int>& nums) {
+        int n=nums.size();
+        if(n==0) return 0;
 
-    int longest=1;
-    unordered_set<int>st;
-
-    for(int i=0; i<n; i++)
-    {
-        st.insert(vec[i]);
-    }
-
-    for(auto it:st){
-        if(st.find(it-1)==st.end()){
-            int cnt=1;
-            int x=it;
-            while(st.find(x+1) != st.end()){
-                x=x+1;
-                cnt=cnt+1;
-            }
-            longest=max(longest,cnt);
+        int longest=1;
+        
+        unordered_set<int>st;
+        for(int i=0; i<n; i++)
+        {
+            st.insert(nums[i]);
         }
-    }
 
-    return longest;
-}
+        for(auto it:st)
+        {
+            if(st.find(it-1) == st.end())
+            {
+                int count=1;
+                int x=it;
+
+                while(st.find(x+1) != st.end())
+                {
+                    count++;
+                    x=x+1;
+                }
+                longest=max(longest,count);
+            }
+        }
+        return longest;
+    }
+};
 
 int main()
 {
-    vector<int>vec={102,4,100,1,101,3,2,1,1};
+    vector<int>vec={100,4,200,1,3,2};
 
-    int result=longestConsecutiveOptimal(vec);
+    int result=Solution().longestConsecutive(vec);
 
     cout<<"Longest consecutive is: "<<result<<endl;
 }
