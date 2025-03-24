@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        int count1=0,count2=0,el1=0,el2=0;
+        int count1=0,count2=0,el1=INT_MIN,el2=INT_MIN;
         int n=nums.size();
         vector<int>res;
 
