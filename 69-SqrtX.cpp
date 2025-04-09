@@ -4,30 +4,23 @@ using namespace std;
 class Solution {
 public:
     int mySqrt(int x) {
-        int left=1,right=x,sol=0;
-        if(x==0)
-        {
-            return 0;
-        }
-        while (left<=right)
-        {
-            int mid=left+(right-left)/2;
-            
-            if(x/mid==mid)  //we do division approach here.not apply multiplication,cz then the result of multiplication maybe go outside the range of int datatype
-            {
-                return mid;
-            }
-            else if(x/mid<mid)
-            {
-                right=mid-1;
-            }
-            else
-            {
-                left=mid+1;
-                sol=mid;    //it say lowerbound so sol= mid in here,if its say upperbound then guess where
+        int low = 1, high = x;
+        int ans = -1;
+
+        if(x==0) return 0;
+
+        while (low <= high) {
+            long long mid = low + (high - low) / 2;
+            long long value = mid * mid;
+            if (value <= (long long)x) {
+                ans = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
-        return sol;
+
+        return ans;
     }
 };
 
