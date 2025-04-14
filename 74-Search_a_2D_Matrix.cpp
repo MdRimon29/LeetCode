@@ -10,6 +10,7 @@ public:
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
+            //convert 1d array to 2d matrix
             int row = mid / m;
             int column = mid % m;
             int value = matrix[row][column];
