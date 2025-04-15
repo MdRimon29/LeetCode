@@ -20,6 +20,28 @@ public:
 
         return ans;
     }
+
+    //another solution using set
+    int lengthOfLongestSubstring2(string s) {
+        int left=0,right=0,big=0;
+        unordered_set<char>charSet;
+
+        while(right<s.length())
+        {
+            if(charSet.find(s[right]) != charSet.end())
+            {
+                charSet.erase(s[left]);
+                left++;
+            }
+            else
+            {
+                charSet.insert(s[right]);
+                big=max(big, right-left+1);
+                right++;
+            }
+        }
+        return big;
+    }
 };
 
 int main()
